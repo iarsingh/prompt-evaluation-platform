@@ -1,7 +1,9 @@
+from prompteval.ops import router as ops_router
 from fastapi import FastAPI
 from prompteval.score import evaluate
 
 app = FastAPI()
+app.include_router(ops_router, prefix="/v1")
 
 
 @app.get("/healthz")
